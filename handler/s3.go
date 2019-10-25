@@ -29,7 +29,7 @@ func NewS3Handler(region, bucket string) *S3Handler {
 }
 
 // GetItemContentWithCustomInput - supports byte-range request and other various customization
-func (sh *S3Handler) GetItemContentWithCustomInput(key string, custom CustomInput) (error, string) {
+func (sh *S3Handler) getItemContentWithCustomInput(key string, custom CustomInput) (error, string) {
 	result, err := sh.s3Client.GetObject(&s3.GetObjectInput{
 		Bucket:                     sh.bucket,
 		Key:                        &key,
@@ -62,11 +62,11 @@ func (sh *S3Handler) GetItemContentWithCustomInput(key string, custom CustomInpu
 
 // GetItemContent - returns the entire content of an item from the input bucket
 func (sh *S3Handler) GetItemContent(key string) (error, string) {
-	return sh.GetItemContentWithCustomInput(key, CustomInput{})
+	return sh.getItemContentWithCustomInput(key, CustomInput{})
 }
 
 // GetItemContentWithContext - ** this is NOT READY
-func (sh *S3Handler) GetItemContentWithContext(key string) (error, string) {
+func (sh *S3Handler) getItemContentWithContext(key string) (error, string) {
 	/*
 		result, err := svc.GetObjectWithContext(ctx, &s3.GetObjectInput{
 			Bucket: sh.bucket,

@@ -110,6 +110,10 @@ Basic request metrics are forwarded to New Relic if either the license or name i
 "", meaning nothing is forwarded.)  Requires running the nr-agent on the host and an NR account.  It's what
 we mainly rely on here at Ellation.
 
+## TODO:
+  - future release introduce ability to support multiple buckets in S3
+  - it will also support ability to cache static contents in a distributed cache layer
+  -
 
 ## License
 
