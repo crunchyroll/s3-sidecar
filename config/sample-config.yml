@@ -1,0 +1,15 @@
+---
+newrelic:
+  name: s3-sidecar
+  license: dummy
+service:
+  listen: 8080
+s3:
+  region: us-west-2
+  bucket: bucket-name
+logging:
+  app_name: s3-sidecar
+  app_version: 1.00
+  eng_group: team-name
+  level: INFO
+
